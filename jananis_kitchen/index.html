@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janani's Kitchen – Authentic Homemade Flavors of Hyderabad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: '#FF6B1A',
+            gold: '#FFB800',
+            crimson: '#C41E3A',
+            forest: '#1B5E20',
+            turmeric: '#E8A900',
+            cream: '#FFF8F0',
+            spice: '#8B1A00',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            script: ['Dancing Script', 'cursive'],
+            body: ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --saffron: #FF6B1A;
+      --gold: #FFB800;
+      --crimson: #C41E3A;
+      --forest: #1B5E20;
+      --cream: #FFF8F0;
+      --spice: #8B1A00;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: var(--cream); overflow-x: hidden; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #fff3e0; }
+    ::-webkit-scrollbar-thumb { background: var(--saffron); border-radius: 3px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,240,0.92); backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--gold);
+      transition: all 0.3s;
+    }
+    .nav-link {
+      position: relative; font-weight: 500; color: #333; padding: 4px 0;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 2px; background: var(--saffron);
+      transition: width 0.3s;
+    }
+    .nav-link:hover { color: var(--saffron); }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(139,26,0,0.82) 0%, rgba(196,30,58,0.7) 40%, rgba(255,107,26,0.6) 100%),
+        url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1600&auto=format&fit=crop') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 20px 60px;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent, transparent 30px,
+        rgba(255,184,0,0.04) 30px, rgba(255,184,0,0.04) 31px
+      );
+    }
+    #hero::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0; right: 0; height: 80px;
+      background: var(--cream);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,184,0,0.2);
+      border: 1px solid rgba(255,184,0,0.5);
+      color: #FFD54F;
+      padding: 6px 20px; border-radius: 50px;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+      animation: fadeDown 0.8s ease both;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 900; color: #fff;
+      line-height: 1.05; letter-spacing: -1px;
+      animation: fadeUp 0.9s 0.2s ease both;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+    .hero-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      color: var(--gold); display: block; margin-top: 4px;
+      animation: fadeUp 0.9s 0.35s ease both;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.9);
+      font-size: clamp(1rem, 2.5vw, 1.25rem); font-weight: 300;
+      animation: fadeUp 0.9s 0.5s ease both;
+    }
+    .hero-tagline {
+      color: var(--gold);
+      font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 500;
+      animation: fadeUp 0.9s 0.65s ease both;
+    }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--gold), var(--saffron));
+      color: #fff; font-weight: 700; font-size: 1rem;
+      padding: 16px 40px; border-radius: 50px;
+      box-shadow: 0 8px 30px rgba(255,107,26,0.5);
+      transition: all 0.3s; cursor: pointer; border: none;
+      animation: fadeUp 0.9s 0.8s ease both;
+      text-decoration: none;
+    }
+    .btn-cta:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(255,107,26,0.65);
+    }
+    .btn-cta:active { transform: translateY(0) scale(0.98); }
+
+    /* ── DECORATIVE SPICES ── */
+    .spice-dot {
+      position: absolute; border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--saffron); margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 900;
+      color: #1a1a1a; line-height: 1.15;
+    }
+    .divider {
+      width: 60px; height: 4px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--saffron));
+      margin: 16px auto 0;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--cream); }
+    .about-card {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(196,30,58,0.08);
+      border-left: 6px solid var(--saffron);
+      position: relative; overflow: hidden;
+    }
+    .about-card::before {
+      content: '🍛';
+      position: absolute; right: 24px; top: 24px;
+      font-size: 5rem; opacity: 0.07;
+    }
+    .about-stat {
+      background: linear-gradient(135deg, var(--saffron), var(--crimson));
+      color: #fff; border-radius: 16px;
+      padding: 20px; text-align: center;
+    }
+
+    /* ── MENU ── */
+    #menu { background: linear-gradient(180deg, #fff 0%, #FFF3E0 100%); }
+    .menu-card {
+      background: #fff; border-radius: 20px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+      overflow: hidden; transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      cursor: pointer;
+    }
+    .menu-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(255,107,26,0.2);
+    }
+    .menu-card:hover .card-img { transform: scale(1.08); }
+    .card-img-wrap { overflow: hidden; height: 200px; }
+    .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .price-badge {
+      background: linear-gradient(135deg, var(--gold), var(--saffron));
+      color: #fff; font-size: 0.7rem; font-weight: 600;
+      padding: 4px 12px; border-radius: 50px;
+      display: inline-block;
+    }
+    .veg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── OFFERS ── */
+    #offers {
+      background: linear-gradient(135deg, var(--spice) 0%, var(--crimson) 50%, var(--saffron) 100%);
+      position: relative; overflow: hidden;
+    }
+    #offers::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg, transparent, transparent 20px,
+        rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 21px
+      );
+    }
+    .offer-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px; color: #fff;
+      transition: all 0.3s;
+    }
+    .offer-card:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-5px);
+    }
+
+    /* ── AVAILABILITY ── */
+    #availability { background: var(--cream); }
+    .platform-card {
+      border-radius: 20px; padding: 32px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s; cursor: default;
+      text-align: center;
+    }
+    .platform-card:hover { transform: translateY(-6px); }
+    .swiggy-card { background: linear-gradient(135deg, #FF5200, #FF8C42); color: #fff; }
+    .zomato-card { background: linear-gradient(135deg, #CB202D, #E84F5B); color: #fff; }
+    .platform-icon { font-size: 3.5rem; margin-bottom: 12px; }
+
+    /* ── WAITLIST ── */
+    #waitlist { background: linear-gradient(180deg, #FFF3E0, var(--cream)); }
+    .input-field {
+      width: 100%; padding: 14px 18px;
+      border: 2px solid #e0c9a0; border-radius: 12px;
+      font-family: 'Poppins', sans-serif; font-size: 0.95rem;
+      background: #fff; transition: all 0.3s; outline: none;
+      color: #333;
+    }
+    .input-field:focus { border-color: var(--saffron); box-shadow: 0 0 0 4px rgba(255,107,26,0.1); }
+    .input-field::placeholder { color: #bbb; }
+    .form-card {
+      background: #fff; border-radius: 28px;
+      box-shadow: 0 12px 60px rgba(196,30,58,0.1);
+      border-top: 5px solid var(--saffron);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: linear-gradient(135deg, #1a0500, #3d0a00);
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      33% { transform: translateY(-15px) rotate(5deg); }
+      66% { transform: translateY(-8px) rotate(-3deg); }
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+      background: linear-gradient(135deg, var(--forest), #2E7D32);
+      color: #fff; padding: 16px 28px; border-radius: 14px;
+      font-weight: 500; font-size: 0.95rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      transform: translateY(100px); opacity: 0;
+      transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+      pointer-events: none;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ── MOBILE MENU ── */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+
+    /* SCROLL TO TOP */
+    #scroll-top {
+      position: fixed; bottom: 30px; left: 30px; z-index: 200;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--saffron));
+      color: #fff; font-size: 1.2rem; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,107,26,0.4);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translateY(10px);
+      transition: all 0.3s;
+    }
+    #scroll-top.visible { opacity: 1; transform: translateY(0); }
+    #scroll-top:hover { transform: translateY(-3px); }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav>
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-2">
+      <span style="font-size:1.6rem;">🍲</span>
+      <span style="font-family:'Playfair Display',serif; font-weight:900; color:var(--crimson); font-size:1.25rem; line-height:1;">
+        Janani's<br><span style="color:var(--saffron);">Kitchen</span>
+      </span>
+    </a>
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about" class="nav-link text-sm">About</a>
+      <a href="#menu" class="nav-link text-sm">Menu</a>
+      <a href="#offers" class="nav-link text-sm">Offers</a>
+      <a href="#availability" class="nav-link text-sm">Order</a>
+      <a href="#catering" class="nav-link text-sm">Catering</a>
+    </div>
+    <!-- Mobile toggle -->
+    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()">
+      <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+      <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+      <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-amber-100 px-6 pb-4">
+    <div class="flex flex-col gap-4 pt-4">
+      <a href="#about" class="nav-link text-sm" onclick="toggleMenu()">About</a>
+      <a href="#menu" class="nav-link text-sm" onclick="toggleMenu()">Menu</a>
+      <a href="#offers" class="nav-link text-sm" onclick="toggleMenu()">Offers</a>
+      <a href="#catering" class="nav-link text-sm" onclick="toggleMenu()">Catering</a>
+      <a href="#availability" class="nav-link text-sm" onclick="toggleMenu()">Order</a>
+      <a href="#waitlist" class="btn-cta text-sm text-center" style="padding:10px 24px;" onclick="toggleMenu()">Join Waitlist</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero">
+  <!-- Floating spice orbs -->
+  <div class="spice-dot" style="width:120px;height:120px;background:rgba(255,184,0,0.12);top:15%;left:5%;animation-delay:0s;"></div>
+  <div class="spice-dot" style="width:80px;height:80px;background:rgba(255,255,255,0.06);top:60%;left:2%;animation-delay:2s;"></div>
+  <div class="spice-dot" style="width:160px;height:160px;background:rgba(196,30,58,0.15);top:10%;right:4%;animation-delay:1s;"></div>
+  <div class="spice-dot" style="width:60px;height:60px;background:rgba(255,184,0,0.15);bottom:20%;right:8%;animation-delay:3s;"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <div class="mb-6">
+      <span class="hero-badge">☁️ Cloud Kitchen · Hyderabad</span>
+    </div>
+    <h1 class="hero-title">
+      Janani's Kitchen
+      <span class="hero-script">Pure & Homemade</span>
+    </h1>
+    <p class="hero-sub mt-6 mb-3">"Authentic Homemade Flavors of Hyderabad"</p>
+    <p class="hero-tagline mb-10">Where Every Bite Feels Like Home ❤️</p>
+    <a href="https://wa.me/919346090586" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <span>💬</span> WhatsApp: +91 93460 90586
+    </a>
+    <!-- scroll indicator -->
+    <div class="mt-16 flex flex-col items-center gap-2 opacity-60">
+      <span style="font-size:0.75rem;color:#fff;letter-spacing:2px;text-transform:uppercase;">Scroll to explore</span>
+      <div style="width:2px;height:40px;background:linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════ -->
+<section id="about" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Our Story</span>
+      <h2 class="section-title">Made with Love,<br>Served with Pride</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="about-card p-10 reveal reveal-delay-1">
+        <p style="color:var(--saffron);font-size:3rem;margin-bottom:16px;">🫙</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#1a1a1a;margin-bottom:14px;">
+          The Heart Behind Every Dish
+        </h3>
+        <p style="color:#555;line-height:1.9;font-size:0.97rem;">
+          At <strong style="color:var(--crimson);">Janani's Kitchen</strong>, we bring you the rich, authentic taste 
+          of homemade Hyderabadi food. Every dish is prepared with <em>love, tradition, and premium ingredients</em> — 
+          just as a mother would cook for her family.
+        </p>
+        <p style="color:#555;line-height:1.9;font-size:0.97rem;margin-top:14px;">
+          From the aromatic dum biryani to the tangy gongura curries, each recipe carries generations of flavor 
+          passed down through Hyderabadi kitchens.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span style="background:#FFF3E0;color:var(--saffron);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;">🌿 No Preservatives</span>
+          <span style="background:#FFF3E0;color:var(--crimson);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;">🏠 Home-Style Cooking</span>
+          <span style="background:#FFF3E0;color:var(--forest);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;">✨ Premium Spices</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 reveal reveal-delay-2">
+        <div class="about-stat">
+          <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;">100%</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Homemade</div>
+        </div>
+        <div class="about-stat" style="background:linear-gradient(135deg,var(--forest),#2E7D32);">
+          <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;">Fresh</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Daily Prep</div>
+        </div>
+        <div class="about-stat col-span-2" style="background:linear-gradient(135deg,#5D1A00,var(--spice));">
+          <div style="font-size:2rem;margin-bottom:8px;">🏆</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;">Authentic Hyderabadi</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Recipes passed through generations</div>
+        </div>
+        <div class="about-stat" style="background:linear-gradient(135deg,var(--gold),#E65100);">
+          <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;">❤️</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Cooked with Love</div>
+        </div>
+        <div class="about-stat" style="background:linear-gradient(135deg,#B71C1C,var(--crimson));">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;">Hyd</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Born in Hyderabad</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     MENU
+════════════════════════════════════════ -->
+<section id="menu" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Our Specialties</span>
+      <h2 class="section-title">The Menu 🍽️</h2>
+      <p style="color:#777;margin-top:12px;font-size:0.97rem;">Signature dishes crafted with Hyderabadi soul</p>
+      <div class="divider"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Chicken Biryani -->
+      <div class="menu-card reveal reveal-delay-1">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Chicken-Biryani-Recipe.jpg?w=600&auto=format&fit=crop" alt="Chicken Biryani" loading="lazy" />
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="veg-dot" style="background:#c0392b;border:2px solid #c0392b;"></div>
+            <span style="font-size:0.7rem;color:#888;font-weight:500;">NON-VEG</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;">Chicken Biryani</h3>
+          <p style="color:#888;font-size:0.82rem;margin:6px 0 14px;">Aromatic dum-cooked biryani with tender chicken & whole spices</p>
+          <span class="price-badge">🕐 Price coming soon</span>
+        </div>
+      </div>
+
+      <!-- Bagara Rice -->
+      <div class="menu-card reveal reveal-delay-2">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://www.whiskaffair.com/wp-content/uploads/2020/09/Bagara-Rice-2-1.jpg?w=600&auto=format&fit=crop" alt="Bagara Rice" loading="lazy" />
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="veg-dot" style="background:#27ae60;border:2px solid #27ae60;"></div>
+            <span style="font-size:0.7rem;color:#888;font-weight:500;">VEG</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;">Bagara Rice</h3>
+          <p style="color:#888;font-size:0.82rem;margin:6px 0 14px;">Fragrant rice tempered with mustard, curry leaves & coconut</p>
+          <span class="price-badge">🕐 Price coming soon</span>
+        </div>
+      </div>
+
+      <!-- Chicken Curry -->
+      <div class="menu-card reveal reveal-delay-3">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&auto=format&fit=crop" alt="Chicken Curry" loading="lazy" />
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="veg-dot" style="background:#c0392b;border:2px solid #c0392b;"></div>
+            <span style="font-size:0.7rem;color:#888;font-weight:500;">NON-VEG</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;">Chicken Curry</h3>
+          <p style="color:#888;font-size:0.82rem;margin:6px 0 14px;">Slow-cooked Hyderabadi style chicken in rich masala gravy</p>
+          <span class="price-badge">🕐 Price coming soon</span>
+        </div>
+      </div>
+
+      <!-- Gongura Mutton -->
+      <div class="menu-card reveal reveal-delay-1">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://d17df4wezm00f0.cloudfront.net/recipe-images/8e4c0703-2841-401f-9aa9-8cb5f8c91af7/1765157350932.jpg?w=600&auto=format&fit=crop" alt="Gongura Mutton" loading="lazy" />
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="veg-dot" style="background:#c0392b;border:2px solid #c0392b;"></div>
+            <span style="font-size:0.7rem;color:#888;font-weight:500;">NON-VEG</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;">Gongura Mutton</h3>
+          <p style="color:#888;font-size:0.82rem;margin:6px 0 14px;">Tender mutton cooked in tangy sorrel leaves — a Andhra classic</p>
+          <span class="price-badge">🕐 Price coming soon</span>
+        </div>
+      </div>
+
+      <!-- Moong Dal Halwa -->
+      <div class="menu-card reveal reveal-delay-2">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://www.potsandpans.in/cdn/shop/articles/Moong_dal_halwa_bfed6ca4-2793-4ddf-8c95-ec4960118215_2048x.jpg?v=1666179499?w=600&auto=format&fit=crop" alt="Moong Dal Halwa" loading="lazy" />
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="veg-dot" style="background:#27ae60;border:2px solid #27ae60;"></div>
+            <span style="font-size:0.7rem;color:#888;font-weight:500;">VEG · SWEET</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;">Moong Dal Halwa</h3>
+          <p style="color:#888;font-size:0.82rem;margin:6px 0 14px;">Slow-roasted lentil dessert with ghee, saffron & dry fruits</p>
+          <span class="price-badge">🕐 Price coming soon</span>
+        </div>
+      </div>
+
+      <!-- Raita -->
+      <div class="menu-card reveal reveal-delay-3">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://myfoodstory.com/wp-content/uploads/2018/08/Indian-Raita-How-to-make-it-2.jpg?w=600&auto=format&fit=crop" alt="Raita" loading="lazy" />
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="veg-dot" style="background:#27ae60;border:2px solid #27ae60;"></div>
+            <span style="font-size:0.7rem;color:#888;font-weight:500;">VEG · COOLING</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;">Special Raita</h3>
+          <p style="color:#888;font-size:0.82rem;margin:6px 0 14px;">Chilled yoghurt with cucumber, mint & roasted cumin</p>
+          <span class="price-badge">🕐 Price coming soon</span>
+        </div>
+      </div>
+
+    </div>
+    <p class="text-center mt-12 text-sm" style="color:#aaa;font-style:italic;">
+      More dishes being added... 🌶️ Full menu revealed at launch!
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SPECIAL OFFERS
+════════════════════════════════════════ -->
+<section id="offers" class="py-28 px-6">
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="text-center mb-16 reveal">
+      <span style="color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;">Limited Time</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;color:#fff;margin-top:8px;">
+        🎉 Launch Offer Coming Soon!
+      </h2>
+      <div style="width:60px;height:4px;background:var(--gold);border-radius:2px;margin:16px auto 0;"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="offer-card p-8 text-center reveal reveal-delay-1">
+        <div style="font-size:3rem;margin-bottom:16px;">🎊</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:8px;">Flat 20% OFF</h3>
+        <p style="opacity:0.85;font-size:0.9rem;line-height:1.6;">On your first 3 orders. Early birds get the tastiest deals!</p>
+      </div>
+      <div class="offer-card p-8 text-center reveal reveal-delay-2" style="border:2px solid rgba(255,184,0,0.5);">
+        <div style="font-size:3rem;margin-bottom:16px;">🍮</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:8px;">Free Dessert</h3>
+        <p style="opacity:0.85;font-size:0.9rem;line-height:1.6;">Get a complimentary dessert with every combo order. Sweet deal!</p>
+      </div>
+      <div class="offer-card p-8 text-center reveal reveal-delay-3">
+        <div style="font-size:3rem;margin-bottom:16px;">🚚</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:8px;">Free Delivery</h3>
+        <p style="opacity:0.85;font-size:0.9rem;line-height:1.6;">Free delivery on orders above ₹199 within select areas of Hyderabad.</p>
+      </div>
+    </div>
+    <!-- Countdown teaser -->
+    <!-- <div class="text-center mt-14 reveal">
+      <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;">🚀 Launch dropping very soon — Join the waitlist to be first!</p>
+    </div> -->
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     AVAILABILITY
+════════════════════════════════════════ -->
+<section id="availability" class="py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Order Online</span>
+      <h2 class="section-title">Find Us On 📱</h2>
+      <p style="color:#777;margin-top:12px;font-size:0.97rem;">We're coming to your favourite food apps!</p>
+      <div class="divider"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Swiggy -->
+      <div class="platform-card swiggy-card reveal reveal-delay-1">
+        <div class="platform-icon">🧡</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:8px;">Swiggy</h3>
+        <p style="opacity:0.9;margin-bottom:16px;">Lightning-fast delivery right to your door</p>
+        <span style="background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);padding:8px 20px;border-radius:50px;font-size:0.8rem;font-weight:600;display:inline-block;">
+          🚀 Coming Soon
+        </span>
+      </div>
+      <!-- Zomato -->
+      <div class="platform-card zomato-card reveal reveal-delay-2">
+        <div class="platform-icon">❤️</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:8px;">Zomato</h3>
+        <p style="opacity:0.9;margin-bottom:16px;">Discover the best of Hyderabadi flavours</p>
+        <span style="background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);padding:8px 20px;border-radius:50px;font-size:0.8rem;font-weight:600;display:inline-block;">
+          🚀 Coming Soon
+        </span>
+      </div>
+    </div>
+    <div class="text-center mt-12 reveal">
+      <p style="font-size:1.1rem;font-weight:600;color:#333;">Coming Soon on Swiggy & Zomato 🚀</p>
+      <p style="color:#888;margin-top:6px;">Stay tuned for our launch! Join the waitlist to get notified.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     CATERING
+════════════════════════════════════════ -->
+<section id="catering" class="py-24 px-6" style="background:linear-gradient(180deg,#fff4e6 0%,#fffaf3 100%);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Bulk Orders</span>
+      <h2 class="section-title">Catering Services 🍽️</h2>
+      <p style="color:#777;margin-top:12px;font-size:0.97rem;">Perfect for family functions, office lunches, and special celebrations.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-stretch">
+      <div class="about-card p-8 reveal reveal-delay-1" style="border-left-color:var(--crimson);">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#1a1a1a;margin-bottom:14px;">What We Cater</h3>
+        <ul style="color:#555;line-height:1.9;font-size:0.95rem;list-style:none;padding:0;">
+          <li>✅ Birthday parties and house gatherings</li>
+          <li>✅ Corporate team lunches</li>
+          <li>✅ Festive and family events</li>
+          <li>✅ Custom veg and non-veg menus</li>
+        </ul>
+      </div>
+
+      <div class="form-card p-8 reveal reveal-delay-2" style="border-top-color:var(--forest);">
+        <p style="color:var(--forest);font-weight:700;letter-spacing:1px;font-size:0.78rem;text-transform:uppercase;">Book Catering</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#1a1a1a;margin:10px 0 14px;">Contact Us on WhatsApp</h3>
+        <p style="color:#666;line-height:1.8;font-size:0.95rem;">Share your event date, guest count, and menu preference. We will get back with a customized quote.</p>
+        <a href="https://wa.me/919346090586" target="_blank" rel="noopener noreferrer" class="btn-cta mt-6" style="padding:12px 22px;display:inline-flex;">
+          💬 WhatsApp: +91 93460 90586
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <!-- Top -->
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 pb-10 border-b border-white/10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span style="font-size:2rem;">🍲</span>
+          <div>
+            <span style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;">Janani's Kitchen</span>
+            <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:2px;">Cloud Kitchen · Hyderabad</p>
+          </div>
+        </div>
+        <p style="max-width:300px;color:rgba(255,255,255,0.6);font-size:0.88rem;line-height:1.7;">
+          Authentic homemade Hyderabadi food, crafted with love and tradition. Coming soon to your neighbourhood.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <p style="font-weight:600;color:#fff;font-size:0.9rem;">Quick Links</p>
+        <div class="flex flex-col gap-2">
+          <a href="#about" style="color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">About Us</a>
+          <a href="#menu" style="color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Menu</a>
+          <a href="#offers" style="color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Offers</a>
+          <a href="#catering" style="color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Catering</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <p style="font-weight:600;color:#fff;font-size:0.9rem;">Contact</p>
+        <div style="color:rgba(255,255,255,0.6);font-size:0.85rem;line-height:1.8;">
+          <p>📍 Hyderabad, Telangana</p>
+          <p>📧 hello@jananiskitchen.in</p>
+          <p>📞 +91 93460 90586</p>
+          <p>💬 WhatsApp: +91 93460 90586</p>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;">
+        © 2025 Janani's Kitchen. All rights reserved.
+      </p>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.88rem;font-weight:500;">
+        Made with ❤️ in Hyderabad
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Toast notification -->
+<div id="toast">✅ You're on the list! We'll notify you at launch 🎉</div>
+
+<!-- Scroll to top -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+
+<script>
+  // ── Mobile menu ──
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    m.classList.toggle('open');
+  }
+
+  // ── Scroll reveal ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── Scroll-to-top button ──
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // ── Waitlist form ──
+  function handleSubmit() {
+    const name  = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const area  = document.getElementById('f-area').value.trim();
+    if (!name || !phone || !area) {
+      shakeForm(); return;
+    }
+    // Show toast
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+    // Reset
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-phone').value = '';
+    document.getElementById('f-area').value = '';
+  }
+
+  function shakeForm() {
+    const card = document.querySelector('.form-card');
+    card.style.animation = 'none';
+    card.style.transform = 'translateX(-8px)';
+    setTimeout(() => { card.style.transform = 'translateX(8px)'; }, 80);
+    setTimeout(() => { card.style.transform = 'translateX(-6px)'; }, 160);
+    setTimeout(() => { card.style.transform = 'translateX(0)'; }, 240);
+  }
+
+  // ── Smooth nav highlight on scroll ──
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--saffron)' : '';
+    });
+  });
+</script>
+</body>
+</html>
