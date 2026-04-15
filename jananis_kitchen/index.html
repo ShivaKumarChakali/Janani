@@ -125,6 +125,34 @@
       font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 500;
       animation: fadeUp 0.9s 0.65s ease both;
     }
+    .hero-stamp {
+      position: absolute;
+      top: 72%;
+      right: 6%;
+      width: 160px;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #ffdf7a 0%, #ffb800 45%, #ff8c42 100%);
+      clip-path: polygon(50% 0%, 61% 18%, 82% 10%, 76% 30%, 96% 39%, 79% 52%, 90% 72%, 68% 68%, 61% 90%, 50% 73%, 39% 90%, 32% 68%, 10% 72%, 21% 52%, 4% 39%, 24% 30%, 18% 10%, 39% 18%);
+      box-shadow: 0 16px 35px rgba(255, 184, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      transform: rotate(10deg);
+      animation: fadeUp 0.9s 0.95s ease both, float 6s ease-in-out 1.2s infinite;
+      z-index: 2;
+    }
+    .hero-stamp span {
+      display: block;
+      color: #7a2d00;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.96rem;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+    }
     .btn-cta {
       display: inline-flex; align-items: center; gap: 10px;
       background: linear-gradient(135deg, var(--gold), var(--saffron));
@@ -353,6 +381,7 @@
       <a href="#about" class="nav-link text-sm">About</a>
       <a href="#menu" class="nav-link text-sm">Menu</a>
       <a href="#offers" class="nav-link text-sm">Offers</a>
+      <a href="#sunday-lunch-box" class="nav-link text-sm">Sunday Lunch Box</a>
       <a href="#availability" class="nav-link text-sm">Order</a>
       <a href="#catering" class="nav-link text-sm">Catering</a>
     </div>
@@ -369,6 +398,7 @@
       <a href="#about" class="nav-link text-sm" onclick="toggleMenu()">About</a>
       <a href="#menu" class="nav-link text-sm" onclick="toggleMenu()">Menu</a>
       <a href="#offers" class="nav-link text-sm" onclick="toggleMenu()">Offers</a>
+      <a href="#sunday-lunch-box" class="nav-link text-sm" onclick="toggleMenu()">Sunday Lunch Box</a>
       <a href="#catering" class="nav-link text-sm" onclick="toggleMenu()">Catering</a>
       <a href="#availability" class="nav-link text-sm" onclick="toggleMenu()">Order</a>
       <a href="#waitlist" class="btn-cta text-sm text-center" style="padding:10px 24px;" onclick="toggleMenu()">Join Waitlist</a>
@@ -397,6 +427,9 @@
     </h1>
     <p class="hero-sub mt-6 mb-3">"Authentic Homemade Flavors of Hyderabad"</p>
     <p class="hero-tagline mb-10">Where Every Bite Feels Like Home ❤️</p>
+    <div class="hero-stamp hidden md:flex">
+      <span>Sunday<br>Lunch Box</span>
+    </div>
     <a href="https://wa.me/919346090586" target="_blank" rel="noopener noreferrer" class="btn-cta">
       <span>💬</span> WhatsApp: +91 93460 90586
     </a>
@@ -699,6 +732,75 @@
 
 
 <!-- ════════════════════════════════════════
+     SUNDAY LUNCH BOX
+════════════════════════════════════════ -->
+<section id="sunday-lunch-box" class="py-24 px-6" style="background:linear-gradient(135deg,#fff7ec 0%,#fff2e6 50%,#fffdf8 100%);">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Sunday Special</span>
+      <h2 class="section-title">Sunday LUNCH BOX</h2>
+      <p style="color:#777;margin-top:12px;font-size:0.97rem;">A comforting Sunday meal designed to let women take a break from cooking and simply enjoy the day.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-stretch">
+      <div class="about-card p-8 md:p-10 reveal reveal-delay-1" style="border-left-color:var(--gold); background:linear-gradient(180deg,#fff 0%,#fffaf4 100%);">
+        <div class="flex flex-wrap items-center gap-3 mb-5">
+          <span style="background:rgba(255,184,0,0.16);color:var(--spice);padding:6px 14px;border-radius:999px;font-size:0.78rem;font-weight:700;">Ready-to-eat</span>
+          <span style="background:rgba(196,30,58,0.08);color:var(--crimson);padding:6px 14px;border-radius:999px;font-size:0.78rem;font-weight:700;">Sunday only</span>
+          <span style="background:rgba(27,94,32,0.08);color:var(--forest);padding:6px 14px;border-radius:999px;font-size:0.78rem;font-weight:700;">Home-style comfort</span>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#1a1a1a;margin-bottom:14px;">What’s inside the box</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div style="background:#fff;border:1px solid #f2dfca;border-radius:18px;padding:16px 18px;">
+            <p style="font-weight:700;color:#1a1a1a;margin-bottom:6px;">Signature comfort meal</p>
+            <p style="color:#666;font-size:0.92rem;line-height:1.7;">A balanced Sunday lunch with rich flavors, fresh sides, and satisfying portions.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #f2dfca;border-radius:18px;padding:16px 18px;">
+            <p style="font-weight:700;color:#1a1a1a;margin-bottom:6px;">No kitchen stress</p>
+            <p style="color:#666;font-size:0.92rem;line-height:1.7;">Perfect for wives, mothers, daughters, and working women who deserve a break.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #f2dfca;border-radius:18px;padding:16px 18px;">
+            <p style="font-weight:700;color:#1a1a1a;margin-bottom:6px;">Freshly prepared</p>
+            <p style="color:#666;font-size:0.92rem;line-height:1.7;">Cooked fresh for Sunday delivery and pickup, with homely taste in every bite.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #f2dfca;border-radius:18px;padding:16px 18px;">
+            <p style="font-weight:700;color:#1a1a1a;margin-bottom:6px;">Perfect for family time</p>
+            <p style="color:#666;font-size:0.92rem;line-height:1.7;">Spend more time with family and less time in the kitchen on Sundays.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card p-8 md:p-10 reveal reveal-delay-2" style="background:linear-gradient(180deg,#ffffff 0%,#fff7ef 100%);">
+        <p style="color:var(--crimson);font-weight:700;letter-spacing:1px;font-size:0.78rem;text-transform:uppercase;">Sunday Lunch Box Orders</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.7rem;color:#1a1a1a;margin:10px 0 14px;">Pre-book your Sunday box</h3>
+        <p style="color:#666;line-height:1.8;font-size:0.95rem;">Reserve ahead on WhatsApp and get your Sunday meal without the cooking hassle.</p>
+        <div style="margin-top:22px;display:grid;gap:12px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:16px;background:#fff;border:1px solid #f1ddc7;">
+            <span style="font-size:1.2rem;">🍛</span>
+            <div>
+              <p style="font-weight:700;color:#1a1a1a;">Fresh Sunday menu</p>
+              <p style="color:#666;font-size:0.9rem;">Updated weekly with seasonal specials.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:16px;background:#fff;border:1px solid #f1ddc7;">
+            <span style="font-size:1.2rem;">📦</span>
+            <div>
+              <p style="font-weight:700;color:#1a1a1a;">Easy booking</p>
+              <p style="color:#666;font-size:0.9rem;">Message us the quantity and delivery area.</p>
+            </div>
+          </div>
+        </div>
+        <a href="https://wa.me/919346090586" target="_blank" rel="noopener noreferrer" class="btn-cta mt-6" style="padding:12px 22px;display:inline-flex;">
+          💬 Book on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════ -->
 <footer class="py-16 px-6">
@@ -724,6 +826,7 @@
           <a href="#menu" style="color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Menu</a>
           <a href="#offers" style="color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Offers</a>
           <a href="#catering" style="color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Catering</a>
+          <a href="#sunday-lunch-box" style="color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Sunday Lunch Box</a>
         </div>
       </div>
       <div class="flex flex-col gap-3">
