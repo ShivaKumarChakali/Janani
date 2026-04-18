@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Janani's Kitchen – Authentic Homemade Flavors of Hyderabad</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <title>Janani's Kitchen – Authentic Homemade Flavors of South</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&family=Caveat:wght@700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -22,6 +22,7 @@
           fontFamily: {
             display: ['Playfair Display', 'serif'],
             script: ['Dancing Script', 'cursive'],
+            pencil: ['Caveat', 'cursive'],
             body: ['Poppins', 'sans-serif'],
           },
         }
@@ -186,6 +187,21 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 5vw, 3rem); font-weight: 900;
       color: #1a1a1a; line-height: 1.15;
+    }
+    .pencil-note {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.35rem, 3.2vw, 1.95rem);
+      font-weight: 700;
+      color: #5a3a24;
+      line-height: 1.2;
+      letter-spacing: 0.4px;
+      transform: rotate(-1.5deg);
+      display: inline-block;
+      background: #fff9e8;
+      border: 2px dashed rgba(139, 26, 0, 0.25);
+      border-radius: 14px;
+      padding: 10px 16px;
+      margin-top: 14px;
     }
     .divider {
       width: 60px; height: 4px; border-radius: 2px;
@@ -421,17 +437,20 @@
     <div class="mb-6">
       <span class="hero-badge">☁️ Cloud Kitchen · Hyderabad</span>
     </div>
+    <span style="font-family:'Playfair Display',serif; font-weight:900; color:white; font-size:1.25rem; line-height:1;">
+        Janani's<br><span style="color:white;">Kitchen</span>
+      </span>
     <h1 class="hero-title">
-      Janani's Kitchen
+      Sunday Lunch Box
       <span class="hero-script">Pure & Homemade</span>
     </h1>
-    <p class="hero-sub mt-6 mb-3">"Authentic Homemade Flavors of Hyderabad"</p>
+    <p class="hero-sub mt-6 mb-3">"Authentic Homemade Flavors of South"</p>
     <p class="hero-tagline mb-10">Where Every Bite Feels Like Home ❤️</p>
     <div class="hero-stamp hidden md:flex">
       <span>Sunday<br>Lunch Box</span>
     </div>
-    <a href="https://wa.me/919346090586" target="_blank" rel="noopener noreferrer" class="btn-cta">
-      <span>💬</span> WhatsApp: +91 93460 90586
+    <a href="https://wa.me/7995428777" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <span>💬</span> WhatsApp: +91 79954 28777
     </a>
     <!-- scroll indicator -->
     <div class="mt-16 flex flex-col items-center gap-2 opacity-60">
@@ -442,63 +461,7 @@
 </section>
 
 
-<!-- ════════════════════════════════════════
-     ABOUT
-════════════════════════════════════════ -->
-<section id="about" class="py-24 px-6">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-16 reveal">
-      <span class="section-label">Our Story</span>
-      <h2 class="section-title">Made with Love,<br>Served with Pride</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <div class="about-card p-10 reveal reveal-delay-1">
-        <p style="color:var(--saffron);font-size:3rem;margin-bottom:16px;">🫙</p>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#1a1a1a;margin-bottom:14px;">
-          The Heart Behind Every Dish
-        </h3>
-        <p style="color:#555;line-height:1.9;font-size:0.97rem;">
-          At <strong style="color:var(--crimson);">Janani's Kitchen</strong>, we bring you the rich, authentic taste 
-          of homemade Hyderabadi food. Every dish is prepared with <em>love, tradition, and premium ingredients</em> — 
-          just as a mother would cook for her family.
-        </p>
-        <p style="color:#555;line-height:1.9;font-size:0.97rem;margin-top:14px;">
-          From the aromatic dum biryani to the tangy gongura curries, each recipe carries generations of flavor 
-          passed down through Hyderabadi kitchens.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <span style="background:#FFF3E0;color:var(--saffron);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;">🌿 No Preservatives</span>
-          <span style="background:#FFF3E0;color:var(--crimson);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;">🏠 Home-Style Cooking</span>
-          <span style="background:#FFF3E0;color:var(--forest);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;">✨ Premium Spices</span>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 gap-4 reveal reveal-delay-2">
-        <div class="about-stat">
-          <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;">100%</div>
-          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Homemade</div>
-        </div>
-        <div class="about-stat" style="background:linear-gradient(135deg,var(--forest),#2E7D32);">
-          <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;">Fresh</div>
-          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Daily Prep</div>
-        </div>
-        <div class="about-stat col-span-2" style="background:linear-gradient(135deg,#5D1A00,var(--spice));">
-          <div style="font-size:2rem;margin-bottom:8px;">🏆</div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;">Authentic Hyderabadi</div>
-          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Recipes passed through generations</div>
-        </div>
-        <div class="about-stat" style="background:linear-gradient(135deg,var(--gold),#E65100);">
-          <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;">❤️</div>
-          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Cooked with Love</div>
-        </div>
-        <div class="about-stat" style="background:linear-gradient(135deg,#B71C1C,var(--crimson));">
-          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;">Hyd</div>
-          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Born in Hyderabad</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 
 <!-- ════════════════════════════════════════
@@ -508,7 +471,7 @@
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-16 reveal">
       <span class="section-label">Our Specialties</span>
-      <h2 class="section-title">The Menu 🍽️</h2>
+      <h2 class="section-title">Our Menu 🍽️</h2>
       <p style="color:#777;margin-top:12px;font-size:0.97rem;">Signature dishes crafted with Hyderabadi soul</p>
       <div class="divider"></div>
     </div>
@@ -586,10 +549,10 @@
         <div class="p-5">
           <div class="flex items-center gap-2 mb-2">
             <div class="veg-dot" style="background:#27ae60;border:2px solid #27ae60;"></div>
-            <span style="font-size:0.7rem;color:#888;font-weight:500;">VEG · SWEET</span>
+            <span style="font-size:0.7rem;color:#888;font-weight:500;">VEG · Dessert of the Day</span>
           </div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;">Moong Dal Halwa</h3>
-          <p style="color:#888;font-size:0.82rem;margin:6px 0 14px;">Slow-roasted lentil dessert with ghee, saffron & dry fruits</p>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;">Janani’s Signature Pesara Delight</h3>
+          <p style="color:#888;font-size:0.82rem;margin:6px 0 14px;">Traditional Moongdal Halwa with a special South Indian twist</p>
           <span class="price-badge">🕐 Price coming soon</span>
         </div>
       </div>
@@ -721,8 +684,8 @@
         <p style="color:var(--forest);font-weight:700;letter-spacing:1px;font-size:0.78rem;text-transform:uppercase;">Book Catering</p>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#1a1a1a;margin:10px 0 14px;">Contact Us on WhatsApp</h3>
         <p style="color:#666;line-height:1.8;font-size:0.95rem;">Share your event date, guest count, and menu preference. We will get back with a customized quote.</p>
-        <a href="https://wa.me/919346090586" target="_blank" rel="noopener noreferrer" class="btn-cta mt-6" style="padding:12px 22px;display:inline-flex;">
-          💬 WhatsApp: +91 93460 90586
+        <a href="https://wa.me/7995428777" target="_blank" rel="noopener noreferrer" class="btn-cta mt-6" style="padding:12px 22px;display:inline-flex;">
+          💬 WhatsApp: 7995428777
         </a>
       </div>
     </div>
@@ -775,6 +738,7 @@
         <p style="color:var(--crimson);font-weight:700;letter-spacing:1px;font-size:0.78rem;text-transform:uppercase;">Sunday Lunch Box Orders</p>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.7rem;color:#1a1a1a;margin:10px 0 14px;">Pre-book your Sunday box</h3>
         <p style="color:#666;line-height:1.8;font-size:0.95rem;">Reserve ahead on WhatsApp and get your Sunday meal without the cooking hassle.</p>
+
         <div style="margin-top:22px;display:grid;gap:12px;">
           <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:16px;background:#fff;border:1px solid #f1ddc7;">
             <span style="font-size:1.2rem;">🍛</span>
@@ -791,9 +755,67 @@
             </div>
           </div>
         </div>
-        <a href="https://wa.me/919346090586" target="_blank" rel="noopener noreferrer" class="btn-cta mt-6" style="padding:12px 22px;display:inline-flex;">
+        <a href="https://wa.me/7995428777" target="_blank" rel="noopener noreferrer" class="btn-cta mt-6" style="padding:12px 22px;display:inline-flex;">
           💬 Book on WhatsApp
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════ -->
+<section id="about" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Our Story</span>
+      <h2 class="section-title">Made with Love,<br>Served with Pride</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="about-card p-10 reveal reveal-delay-1">
+        <p style="color:var(--saffron);font-size:3rem;margin-bottom:16px;">🫙</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#1a1a1a;margin-bottom:14px;">
+          The Heart Behind Every Dish
+        </h3>
+        <p style="color:#555;line-height:1.9;font-size:0.97rem;">
+          At <strong style="color:var(--crimson);">Janani's Kitchen</strong>, we bring you the rich, authentic taste 
+          of homemade Hyderabadi food. Every dish is prepared with <em>love, tradition, and premium ingredients</em> — 
+          just as a mother would cook for her family.
+        </p>
+        <p style="color:#555;line-height:1.9;font-size:0.97rem;margin-top:14px;">
+          From the aromatic dum biryani to the tangy gongura curries, each recipe carries generations of flavor 
+          passed down through Hyderabadi kitchens.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span style="background:#FFF3E0;color:var(--saffron);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;">🌿 No Preservatives</span>
+          <span style="background:#FFF3E0;color:var(--crimson);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;">🏠 Home-Style Cooking</span>
+          <span style="background:#FFF3E0;color:var(--forest);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;">✨ Premium Spices</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 reveal reveal-delay-2">
+        <div class="about-stat">
+          <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;">100%</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Homemade</div>
+        </div>
+        <div class="about-stat" style="background:linear-gradient(135deg,var(--forest),#2E7D32);">
+          <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;">Fresh</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Daily Prep</div>
+        </div>
+        <div class="about-stat col-span-2" style="background:linear-gradient(135deg,#5D1A00,var(--spice));">
+          <div style="font-size:2rem;margin-bottom:8px;">🏆</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;">Authentic Hyderabadi</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Recipes passed through generations</div>
+        </div>
+        <div class="about-stat" style="background:linear-gradient(135deg,var(--gold),#E65100);">
+          <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;">❤️</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Cooked with Love</div>
+        </div>
+        <div class="about-stat" style="background:linear-gradient(135deg,#B71C1C,var(--crimson));">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;">Hyd</div>
+          <div style="font-size:0.8rem;opacity:0.9;margin-top:4px;">Born in Hyderabad</div>
+        </div>
       </div>
     </div>
   </div>
@@ -834,8 +856,8 @@
         <div style="color:rgba(255,255,255,0.6);font-size:0.85rem;line-height:1.8;">
           <p>📍 Hyderabad, Telangana</p>
           <p>📧 hello@jananiskitchen.in</p>
-          <p>📞 +91 93460 90586</p>
-          <p>💬 WhatsApp: +91 93460 90586</p>
+          <p>📞 7995428777</p>
+          <p>💬 WhatsApp: 7995428777</p>
         </div>
       </div>
     </div>
